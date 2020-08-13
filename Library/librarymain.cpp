@@ -1,5 +1,10 @@
-#include "librarymain.h"
+#include "libraryglobal.h"
+#include <cstdio>
 
-LibraryMain::LibraryMain()
-{
+LIBRARY_LOAD void libraryLoad() {
+    printf("teste load");
+}
+
+LIBRARY_UNLOAD void libraryUnload() {
+    printf("teste unload");
 }

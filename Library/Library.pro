@@ -20,8 +20,7 @@ SOURCES += \
     librarymain.cpp
 
 HEADERS += \
-    Library_global.h \
-    librarymain.h
+    libraryglobal.h
 
 # Default rules for deployment.
 unix {
