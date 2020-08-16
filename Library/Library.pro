@@ -18,11 +18,19 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     Core.cpp \
-    LibraryMain.cpp
+    KeyboardHandler.cpp \
+    LibraryMain.cpp \
+    Module.cpp \
+    ModuleManager.cpp \
+    ProcMapsReader.cpp
 
 HEADERS += \
     Core.h \
-    LibraryGlobal.h
+    KeyboardHandler.h \
+    LibraryGlobal.h \
+    Module.h \
+    ModuleManager.h \
+    ProcMapsReader.h
 
 # Default rules for deployment.
 unix {
