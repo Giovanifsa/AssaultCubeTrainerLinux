@@ -18,9 +18,8 @@ void coreThreadRunner(Core* core, ModuleManager* moduleManager)
 	core->running = false;
 }
 
-Core::Core(void* dylibHandle)
+Core::Core()
 {
-	this->dylibHandle = dylibHandle;
 	this->moduleManager = new ModuleManager(*this);
 
 	this->shouldThink = true;
@@ -33,7 +32,8 @@ Core::Core(void* dylibHandle)
 void Core::askUnload()
 {
 	this->shouldThink = false;
-	dlclose(this->dylibHandle);
+	printf("Calling unload script (SUDO NEEDED)\n");
+	system("/tmp/actrainer/unload.sh &");
 }
 
 Core::~Core()
