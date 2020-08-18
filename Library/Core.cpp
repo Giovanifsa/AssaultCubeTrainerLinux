@@ -32,8 +32,22 @@ Core::Core()
 void Core::askUnload()
 {
 	this->shouldThink = false;
-	printf("Calling unload script (SUDO NEEDED)\n");
-	system("/tmp/actrainer/unload.sh &");
+	printf("Tentando decarregar biblioteca.\n");
+
+	void* handle;
+	char handles[9];
+	FILE *handlef = fopen("/tmp/actrainer/handle", "r");
+	if (handlef) {
+		fscanf(handlef, "%s", handles);
+		handle = (void*) strtol(handles, NULL, 16);
+		fclose(handlef);
+		std::thread* dlclosethread = new thread(dlclose, handle);
+		dlclosethread->detach();
+	} else {
+		printf("Erro em carregar o handle\n");
+		printf("Calling unload script (SUDO NEEDED)\n");
+		system("/tmp/actrainer/unload.sh &");
+	}
 }
 
 Core::~Core()

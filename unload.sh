@@ -15,3 +15,5 @@ sudo gdb -batch \
 	-ex "call \$dlclose(\$library)" \
 	-ex "detach" \
 	-ex "quit"
+
+rm -rf /tmp/actrainer
