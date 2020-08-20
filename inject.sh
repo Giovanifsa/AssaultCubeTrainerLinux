@@ -4,8 +4,8 @@
 [ ! -d /tmp/actrainer/ ] && { mkdir -p /tmp/actrainer; cp -r ./{inject.sh,unload.sh,build-Library-Desktop-Debug/} /tmp/actrainer/; }
 
 LIBPATH="/tmp/actrainer/build-Library-Desktop-Debug/libLibrary.so"
-ACPID=$(pidof linux_64_client) || { echo "Processo não encontrado"; exit 1; }
-grep -q libLibrary /proc/$ACPID/maps && { echo "Biblioteca já carregada!"; exit 1; }
+ACPID=$(pidof linux_64_client) || { echo "Processo não encontrado."; exit 1; }
+grep -q libLibrary /proc/$ACPID/maps && { echo "Biblioteca já carregada."; exit 1; }
 
 cd /tmp/actrainer/
 sudo gdb -batch \
